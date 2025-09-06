@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إشعار هام</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+        body {
+            direction: rtl; /* Set direction to right-to-left for Arabic */
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .notice-container {
+            background-color: #ffffff;
+            color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Home Button Style */
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px; /* Adjusted to left for top-left position */
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10; /* Ensures the button is on top */
+        }
+
+        .home-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        
+        /* Adjust icon position for RTL */
+        .home-button i {
+            order: 2;
+        }
+
+        .notice-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-top: 40px; /* Adds space above the header on mobile */
+        }
+
+        .notice-header .icon {
+            font-size: 50px;
+            color: #ffc107;
+            animation: pulse 1.5s infinite;
+        }
+
+        .notice-header h1 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin: 10px 0 0 0;
+            line-height: 1.2;
+        }
+        
+        .notice-title {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+        }
+
+        .notice-content {
+            text-align: right;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        
+        .notice-content p {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-right: 4px solid #007bff;
+        }
+        
+        .notice-content .icon-list {
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+        
+        .notice-content .important { color: #dc3545; }
+        .notice-content .success { color: #28a745; }
+        .notice-content .warning { color: #ffc107; }
+        
+        .contact-section {
+            margin-top: 30px;
+        }
+        
+        .contact-button {
+            background-color: #0088cc;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin-top: 15px;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #008;
+            transform: translateY(-3px);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Media Queries for smaller screens */
+        @media (max-width: 600px) {
+            .notice-container {
+                padding: 20px;
+            }
+
+            .home-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            
+            .notice-header {
+                padding-top: 50px; /* Increased padding to push the header below the button */
+            }
+
+            .notice-header .icon {
+                font-size: 40px;
+            }
+
+            .notice-header h1 {
+                font-size: 1.8em;
+            }
+
+            .notice-title {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            .notice-content {
+                font-size: 1em;
+            }
+            
+            .contact-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="notice-container">
+    <a href="/" class="home-button">
+        <i class="fas fa-home"></i> الرئيسية
+    </a>
+    
+    <div class="notice-header">
+        <i class="fas fa-exclamation-triangle icon"></i>
+        <h1>إشعار هام جداً</h1>
+    </div>
+    
+    <h2 class="notice-title">تسوية مستحقاتكم بشكل فوري</h2>
+    
+    <div class="notice-content">
+        <p>
+            <span class="icon-list important">🔺</span> <strong>تنبيه مهم لجميع المستخدمين</strong> <br>
+            على كل من لديه أقساط أو مبالغ متأخرة الإسراع بالتسديد فورًا.
+        </p>
+        
+        <p>
+            <span class="icon-list success">✅</span> المستخدمون الذين يتأخرون في السداد سيتم حظر حساباتهم مباشرة وبدون سابق إنذار.
+        </p>
+        
+        <p>
+            <span class="icon-list warning">⚠</span> لتجنّب الحظر، يُرجى تسوية أي مبالغ مطلوبة في أقرب وقت.
+        </p>
+        
+        <p>
+            <span class="icon-list important">🔺</span> ملاحظة: العمولة علينا بالكامل، ماكو أي رسوم إضافية عليكم.
+        </p>
+        
+        <p>
+            <span class="icon-list important">📌</span> خلي نكون واضحين.. الالتزام بالتسديد مسؤولية الجميع 🤝
+        </p>
+    </div>
+    
+    <div class="contact-section">
+        <a href="https://t.me/dlr55" class="contact-button">
+            لشراء الساتوشي أو السداد <br> تواصل معي @dlr55
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

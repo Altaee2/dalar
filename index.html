@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوكيلة دلار</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo for a modern Arabic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #e2e8f0; /* خلفية رمادية فاتحة جداً */
+            color: #2d3748; /* نص رمادي داكن */
+            direction: rtl; /* اتجاه الكتابة من اليمين لليسار */
+            text-align: right; /* محاذاة النص لليمين افتراضياً */
+        }
+        /* Custom overrides for Tailwind RTL consistency */
+        .text-left { text-align: right; }
+        .text-right { text-align: left; }
+        .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+            margin-right: calc(1rem * var(--tw-space-x-reverse, 0));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse, 0)));
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-background {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Modal specific styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 70vh; /* Limit image height */
+            object-fit: contain;
+            border-radius: 0.75rem; /* rounded-lg */
+            margin-bottom: 1rem;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #aaa;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body class="bg-gray-100 antialiased">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-xl">
+        <nav class="container mx-auto flex justify-between items-center flex-wrap">
+            <div class="text-3xl font-extrabold text-blue-700">
+               موقع الوكيلة دلار 
+            </div>
+            <ul class="flex space-x-6 space-x-reverse mt-4 md:mt-0 font-medium">
+                <li><a href="#about-me" class="text-gray-700 hover:text-blue-700 transition-colors duration-300">من انا؟ </a></li>
+                <li><a href="#portfolio" class="text-gray-700 hover:text-blue-700 transition-colors duration-300">المنشورات</a></li>
+                <li><a href="#gallery" class="text-gray-700 hover:text-blue-700 transition-colors duration-300">معرض صوري</a></li>
+                <li><a href="#buy" class="text-gray-700 hover:text-blue-700 transition-colors duration-300">طرق الدفع</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-blue-700 transition-colors duration-300">تواصل معي</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- Hero Section -->
+        <section class="hero-background text-white rounded-2xl p-8 md:p-16 my-8 flex flex-col md:flex-row items-center justify-center gap-10 shadow-2xl animate-fade-in-up">
+            <div class="md:w-2/3 text-center md:text-right">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                    أهلاً بك في ملفي الشخصي <br><span class="text-purple-200">الوكيلة دلار </span>
+                </h1>
+                <p class="text-xl md:text-2xl leading-relaxed mb-8 font-light">
+                    الوكيلة المعتمدة في متجر السلطان الاستثماري , لبيع النقاط و تفعيل العدادات للمستثمرين .
+                </p>
+                <a href="#portfolio" class="inline-block bg-white text-blue-700 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 text-lg">
+                    شاهد أعمالي &rarr;
+                </a>
+            </div>
+            <div class="md:w-1/3 flex justify-center">
+                <!-- Profile Image - Replace with your own image URL -->
+                <img src="Dalar.jpg" alt="صورتك الشخصية" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white shadow-xl transform hover:rotate-3 transition-transform duration-300">
+            </div>
+        </section>
+
+        <!-- About-bot Section (bot) -->
+        <section id="about-bot" class="bg-white shadow-lg rounded-2xl p-8 md:p-12 my-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+            <h2 class="text-4xl font-extrabold text-blue-700 text-center mb-8">ماهو متجر السلطان؟</h2>
+            <div class="max-w-3xl mx-auto text-lg leading-loose text-gray-700">
+                <p class="mb-4">
+                    بوت السلطان هو بوت استثماري على تيليجرام يعمل بطريقة مشابهة للأسهم حيث يمكنك شراء عداد يقوم بتعدين نقاط الساتوشي يوميًا وهي العملة المعتمدة داخل البوت كلما زاد حجم العداد زادت أرباحك.
+                </p>
+                 <h2 class="text-4xl font-extrabold text-blue-700 text-center mb-8">آلية العمل</h2>
+                 <div class="max-w-3xl mx-auto text-lg leading-loose text-gray-700">
+                <p> تقوم بشراء عداد داخل البوت.</p>
+                <p>يبدأ العداد بتعدين نقاط الساتوشي يومياً .</p>
+                <p>يمكنك زيادة ارباحك عبر رابط الاحالة او الهديةاليومية المجانية . </p>
+                <p>التعدين مستمر لمدة 8 سنوات ابتداءًا من تاريخ الشراء . </p>
+                <p>يمكنك سحب ارباحك بسهولة بطرق متعددة .</p>
+     
+            </div>
+        </section>
+
+ <section id="about-me" class="bg-white shadow-lg rounded-2xl p-8 md:p-12 my-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+            <h2 class="text-4xl font-extrabold text-blue-700 text-center mb-8">من انا ؟ </h2>
+            <div class="max-w-3xl mx-auto text-lg leading-loose text-gray-700">
+                <p class="mb-4">
+                    انا الوكيلة دلار المعتمدة رسمياً في متجر السلطان الاستثماري , اساس عملي هو بيع النقاط و تفعيل العداد للمستثمرين , وعمل مسابقات في البوت , و ارشاد المستثمرين بالطرث الصحيحة .
+                </p>
+                <p>متواجدة 24 ساعة في خدمتكم.</p>
+                <p>جميع وسائل الدفع مستمرة.</p>
+                <p>لشراء النقاط : احصل على نقاط ساتوشي بسهولة لتطوير العداد و زيادة الدخل .</p>
+                <p>لسحب الأرباح : يمكنك سحب أرباحك بكل سهولة من خلال قسم سحب الأرباح داخل البوت بطرق متعددة تناسبك.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section (أعمالي) -->
+        <section id="portfolio" class="bg-white shadow-lg rounded-2xl p-8 md:p-12 my-8 animate-fade-in-up" style="animation-delay: 0.4s;">
+            <h2 class="text-4xl font-extrabold text-blue-700 text-center mb-10">أبرز المنشورات و الاعمال</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl">
+                    <img src="Dalar.jpg" alt="مشروع 1" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">الفرصة الذهبية</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-4">عزيزي المستثمر هل تعلم ان الفرصة الذهبية لتطوير عدادك هسه وبس ! </p>
+                        <a href="gold.html" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300">
+                            قراءة المنشور &rarr;
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio Item 2 -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl">
+                    <img src="Dalar.jpg" alt="مشروع 2" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">تنويه هام لجميع المستثمرين </h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-4">على كل من لديه اقساط او مبالغ متأخرة , يرجى الاسراع بالتسديد فوراً !</p>
+                        <a href="worng.html" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300">
+                          قراءة التنويه &rarr;
+                        </a>
+                    </div>
+                </div>
+                <!-- Portfolio Item 3 -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl">
+                    <img src="Dalar.jpg" alt="مشروع 3" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">تفعيل العدادات و شراء النقاط</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-4">لتدهيز رحلتك الاستثمارية خلال لحظات...</p>
+                        <a href="buy.html" class="inline-block text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300">
+                         قراءة التفاصيل &rarr;
+                        </a>
+                    </div>
+                </div>
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </section>
+
+        <!-- Image Gallery Section (معرض صوري) -->
+        <section id="gallery" class="bg-white shadow-lg rounded-2xl p-8 md:p-12 my-8 animate-fade-in-up" style="animation-delay: 0.5s;">
+            <h2 class="text-4xl font-extrabold text-blue-700 text-center mb-10">معرض صوري</h2>
+            <div id="gallery-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Image Card 1 -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden relative group">
+                    <img src="buy.jpg" alt="العدادات" class="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">اسعار العدادات</h3>
+                        <p class="text-gray-600 text-sm">صورة توضح اسعار العدادات لمتجر بوت السلطان  </p>
+                    </div>
+                    <!-- View Image Button -->
+                    <button class="view-image-button absolute top-4 left-4 bg-blue-600 text-white rounded-full p-2 shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-blue-700"
+                            data-img-src="buy.jpg"
+                            data-img-title="اسعار العدادات"
+                            data-img-description="">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </button>
+                </div>
+                <!-- Image Card 2 -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden relative group">
+                    <img src="Dalar.jpg" alt="تصميم جرافيكي إبداعي." class="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                    </div>
+                    <!-- View Image Button -->
+                    <button class="view-image-button absolute top-4 left-4 bg-blue-600 text-white rounded-full p-2 shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-blue-700"
+                            data-img-src="Dalar.jpg"
+                            data-img-title="الوكيلة دلار"
+                            data-img-description="">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </button>
+                </div>
+                <!-- Image Card 3 -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden relative group">
+                    <img src="d2.jpg" alt="d2" class="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Dalar</h3>
+                    </div>
+                    <!-- View Image Button -->
+                    <button class="view-image-button absolute top-4 left-4 bg-blue-600 text-white rounded-full p-2 shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-blue-700"
+                            data-img-src="d2.jpg"
+                            data-img-title="الوكيلة دلار"
+                            data-img-description="">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </button>
+                </div>
+                 <!-- Image Card 3 -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden relative group">
+                    <img src="d3.jpg" alt="d2" class="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Dalar</h3>
+                    </div>
+                    <!-- View Image Button -->
+                    <button class="view-image-button absolute top-4 left-4 bg-blue-600 text-white rounded-full p-2 shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-blue-700"
+                            data-img-src="d3.jpg"
+                            data-img-title="الوكيلة دلار"
+                            data-img-description="">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </button>
+                </div>
+                <!-- Add more image cards here following the same structure -->
+            </div>
+        </section>
+
+        <!--  (طرق الدفع) -->
+          <section id="buy" class="bg-white shadow-lg rounded-2xl p-8 md:p-12 my-8 animate-fade-in-up" style="animation-delay: 0.6s;">
+    <h2 class="text-4xl font-extrabold text-blue-700 text-center mb-10">طرق الدفع المتوفرة</h2>
+    <div class="flex flex-wrap justify-center gap-8">
+        <a href="#" class="flex flex-col items-center space-y-2 bg-purple-600 text-white p-6 rounded-2xl shadow-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105">
+            <img src="asiacell.jpg" alt="Asiacell Logo" class="w-16 h-16">
+            <span class="font-semibold text-lg">آسياسيل</span>
+        </a>
+
+        <a href="#" class="flex flex-col items-center space-y-2 bg-red-600 text-white p-6 rounded-2xl shadow-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105">
+            <img src="zain.jpg" alt="Zain Iraq Logo" class="w-16 h-16">
+            <span class="font-semibold text-lg">زين العراق</span>
+        </a>
+
+        <a href="#" class="flex flex-col items-center space-y-2 bg-green-500 text-white p-6 rounded-2xl shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
+            <img src="zaincash.jpg" alt="Zain Cash Logo" class="w-16 h-16">
+            <span class="font-semibold text-lg">زين كاش</span>
+        </a>
+
+        <a href="#" class="flex flex-col items-center space-y-2 bg-black text-white p-6 rounded-2xl shadow-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+            <img src="master.jpg" alt="Mastercard Logo" class="w-16 h-16">
+            <span class="font-semibold text-lg">ماستر كارد</span>
+        </a>
+    </div>
+</section>
+     
+
+        <!-- Contact Section (تواصل معي) -->
+
+<section id="contact" class="bg-white shadow-lg rounded-2xl p-8 md:p-12 my-8 animate-fade-in-up" style="animation-delay: 0.8s;">
+    <h2 class="text-4xl font-extrabold text-blue-700 text-center mb-6">دعنا نتواصل ونبني شيئاً مميزاً!</h2>
+    <div class="max-w-md mx-auto text-center">
+        <p class="text-lg text-gray-700 mb-8">
+            يمكنك التواصل معي مباشرةً عبر تيليجرام لبدء مشروعك القادم.
+        </p>
+        <a href="https://t.me/dlr55" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-white rounded-full p-4 hover:bg-gray-100 transition-colors duration-300 transform hover:scale-110 shadow-lg">
+            <img src="telegrame.jpg" alt="أيقونة تيليجرام" class="w-16 h-16 md:w-20 md:h-20">
+        </a>
+        <p class="text-xl font-bold mt-4">@dlr55</p>
+    </div>
+</section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-gray-300 p-6 text-center rounded-t-xl mt-12">
+        <p>&copy; 2025 .  جميع الحقوق محفوظة الوكيلة دلار.</p>
+        <p class="mt-2 text-sm">تصميم وتطوير بكل شغف.</p>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-button" id="closeModalBtn">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="صورة مكبرة">
+            <h3 id="modalTitle" class="text-2xl font-semibold text-blue-700 mb-2 text-center"></h3>
+            <p id="modalDescription" class="text-gray-700 text-lg leading-relaxed text-center"></p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Image Modal Logic
+        const imageModal = document.getElementById('imageModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const viewImageButtons = document.querySelectorAll('.view-image-button');
+
+        // Function to open the modal
+        function openImageModal(imgSrc, imgTitle, imgDescription) {
+            modalImage.src = imgSrc;
+            modalTitle.textContent = imgTitle;
+            modalDescription.textContent = imgDescription;
+            imageModal.style.display = 'flex'; // Use flex to center content
+        }
+
+        // Function to close the modal
+        function closeImageModal() {
+            imageModal.style.display = 'none';
+            modalImage.src = ''; // Clear image source
+            modalTitle.textContent = '';
+            modalDescription.textContent = '';
+        }
+
+        // Event listeners for view buttons
+        viewImageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const imgSrc = button.getAttribute('data-img-src');
+                const imgTitle = button.getAttribute('data-img-title');
+                const imgDescription = button.getAttribute('data-img-description');
+                openImageModal(imgSrc, imgTitle, imgDescription);
+            });
+        });
+
+        // Event listener for close button
+        closeModalBtn.addEventListener('click', closeImageModal);
+
+        // Close modal if user clicks outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target === imageModal) {
+                closeImageModal();
+            }
+        });
+
+        // Close modal on escape key press
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && imageModal.style.display === 'flex') {
+                closeImageModal();
+            }
+        });
+    </script>
+</body>
+</html>

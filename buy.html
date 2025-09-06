@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات دلار</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff69b4; /* Pink */
+            --secondary-color: #6a0dad; /* Purple */
+            --bg-color: #fce4ec; /* Light pink background */
+            --text-color: #333;
+            --container-bg: #fff;
+        }
+
+        body {
+            direction: rtl;
+            font-family: 'Tajawal', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards ease-out;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--secondary-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .home-button:hover {
+            background-color: #551a8b;
+            transform: scale(1.05);
+        }
+
+        .main-icon {
+            font-size: 5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 15px 0;
+            text-align: center; /* Centered text */
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centered for RTL and LTR */
+            gap: 15px;
+            margin: 25px 0;
+            animation: slideIn 0.8s forwards ease-out;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            to { opacity: 1; }
+        }
+
+        .feature-item:nth-child(1) { animation-delay: 0.2s; }
+        .feature-item:nth-child(2) { animation-delay: 0.4s; }
+        .feature-item:nth-child(3) { animation-delay: 0.6s; }
+        .feature-item:nth-child(4) { animation-delay: 0.8s; }
+
+        .feature-item .icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-button {
+            background-color: #0088cc;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+        }
+
+        .contact-button:hover {
+            background-color: #ff3399;
+            transform: translateY(-3px);
+        }
+
+        .group-link {
+            font-size: 1rem;
+            margin-top: 20px;
+            display: block;
+        }
+        
+        .group-link a {
+            color: var(--secondary-color);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .group-link a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            .home-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .main-icon {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="home-button"><i class="fas fa-home"></i> الرئيسية</a>
+    
+    <i class="fas fa-heart main-icon"></i>
+    
+    <h1>خدمات دلار المعتمدة</h1>
+
+    <div class="feature-item">
+        <p>متواجدة بـ *كل وقت* لخدمتكم 💖</p>
+        <i class="fas fa-clock icon"></i>
+    </div>
+    
+    <div class="feature-item">
+        <p>لتفعيل العدادات وشراء النقاط <br> وتجهيز رحلتك الاستثمارية خلال لحظات ⚡</p>
+        <i class="fas fa-bolt icon"></i>
+    </div>
+    
+    <div class="feature-item">
+        <p>طرق الدفع المتوفرة 💵</p>
+        <i class="fas fa-credit-card icon"></i>
+    </div>
+
+    <a href="https://t.me/dlr55" class="contact-button">
+        تواصل معي <i class="fab fa-telegram-plane"></i>
+    </a>
+    
+    <p class="group-link">
+        <a href="https://t.me/dlar_150">
+            انضم لجروب الاستفسار والمناقشة <i class="fas fa-users"></i>
+        </a>
+    </p>
+
+    <div style="margin-top: 25px; font-size: 0.9em; color: #888;">
+        الوكيلة دلار معتمدة في متجر السلطان
+    </div>
+</div>
+
+</body>
+</html>
